@@ -3,6 +3,3 @@ streamlit-option-menu
 pandas
 openpyxl
 pickle
-BytesIO
-io
-os
