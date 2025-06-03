@@ -9,6 +9,12 @@ import pickle
 from datetime import datetime
 import openpyxl
 
+if "jurnal" not in st.session_state:
+    st.session_state.jurnal = []
+
+if "keterangan" not in st.session_state:
+    st.session_state.keterangan = []
+
 st.set_page_config(page_title="Zaki Telor", layout="wide")
 
 # === FUNGSI SIMPAN & HAPUS SESSION STATE ===
@@ -16,10 +22,13 @@ FILE_SESSION = "session_jurnal.pkl"
 FILE_KETERANGAN = "session_keterangan.pkl"
 
 def simpan_session_state():
-    with open(FILE_SESSION, "wb") as f:
-        pickle.dump(st.session_state.jurnal, f)
-    with open(FILE_KETERANGAN, "wb") as f:
-        pickle.dump(st.session_state.keterangan, f)
+    if "jurnal" in st.session_state:
+        with open(FILE_SESSION, "wb") as f:
+            pickle.dump(st.session_state.jurnal, f)
+    
+    if "keterangan" in st.session_state:
+        with open(FILE_KETERANGAN, "wb") as f:
+            pickle.dump(st.session_state.keterangan, f)
 
 def hapus_session_state_file():
     if os.path.exists(FILE_SESSION):
