@@ -33,7 +33,7 @@ if os.path.exists(FILE_SESSION):
 
 if os.path.exists(FILE_KETERANGAN):
     with open(FILE_KETERANGAN, "rb") as f:
-        st.session_state.keterangan = pickle.load(f)
+        st.session_state.keterangan = pickle.load(f) 
 
 # === FUNGSI KATEGORI AKUN ===
 def kategori_akun(nama_akun):
